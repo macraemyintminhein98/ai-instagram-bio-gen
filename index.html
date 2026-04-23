@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioBoost AI - Instant Instagram Bios</title>
+    <meta name="description" content="Generate captivating Instagram bios with AI.">
+    <style>
+        body { font-family: sans-serif; margin: 0; padding: 20px; background-color: #f4f7f6; color: #333; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; }
+        .container { background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 600px; width: 100%; text-align: center; }
+        h1 { color: #5a5f70; margin-bottom: 20px; font-size: 2em; }
+        p { margin-bottom: 25px; line-height: 1.6; font-size: 1.1em; }
+        label { display: block; text-align: left; margin-bottom: 8px; font-weight: bold; color: #5a5f70; }
+        textarea { width: calc(100% - 20px); padding: 10px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; resize: vertical; min-height: 100px; }
+        button { background-color: #6bb9f0; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1em; transition: background-color 0.3s ease; display: inline-block; margin-top: 10px; }
+        button:hover { background-color: #5aace8; }
+        #output { background-color: #eef7fe; border: 1px dashed #b3e0ff; padding: 15px; border-radius: 5px; margin-top: 25px; text-align: left; min-height: 50px; font-size: 1.1em; color: #007bff; word-wrap: break-word; }
+        .price { font-size: 1.5em; font-weight: bold; color: #4CAF50; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BioBoost AI</h1>
+        <p>Craft the perfect Instagram bio in seconds with AI. Simply tell us about yourself, and we'll generate creative, personalized options for you!</p>
+        <label for="userDetails">Tell us about yourself (e.g., profession, hobbies, vibe, goals):</label>
+        <textarea id="userDetails" placeholder="e.g., 'Freelance photographer, loves hiking, minimalist aesthetic, wants more collabs.'"></textarea>
+        <button onclick="generateBio()">Generate My Bio!</button>
+        <div id="output">Your AI-generated bio will appear here!</div>
+        <div class="price">Only $9.99 for instant access!</div>
+    </div>
+    <script>
+        function generateBio() {
+            const input = document.getElementById('userDetails').value;
+            const outputDiv = document.getElementById('output');
+            if (input.trim() === '') {
+                outputDiv.textContent = 'Please tell us something about yourself!';
+                return;
+            }
+            // Placeholder for AI generation - in a real app, this would be an API call
+            outputDiv.innerHTML = 'Generating amazing bios... Please wait.';
+            setTimeout(() => {
+                const bios = [
+                    `📸 Photographer | ⛰️ Adventurer | ✨ Capturing moments & making memories. Let's create together!`, 
+                    `Creative lens master, trekking trails + chasing golden hour. DM for collabs! #VisualStoryteller`, 
+                    `Aspiring minimalist with a passion for pixels. Always learning, always exploring.`, 
+                    `Your go-to for visual inspo. Hiking boots & camera in hand! Freelance & fabulous.`, 
+                    `Crafting beautiful visuals. Living one adventure at a time. Connect for art & collabs.`
+                ];
+                const randomIndex = Math.floor(Math.random() * bios.length);
+                outputDiv.textContent = bios[randomIndex];
+            }, 1500); // Simulate API call delay
+        }
+    </script>
+</body>
+</html>
